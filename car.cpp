@@ -65,58 +65,57 @@ void init(){
 Car get_car(enum Type type)
 {
   Car car;
-  if (type == AIXAM)
-  {
-    if (aixam.isRented == false)
-    {
-      aixam.isRented = true;
-      car = &aixam;
-    }
-    else
-    {
-      car = 0;
-    }
+  switch (type) {
+    case AIXAM:
+      if (aixam.isRented == false)
+      {
+        aixam.isRented = true;
+        car = &aixam;
+      }
+      else
+      {
+        car = 0;
+      }
+      return car;
+    case FIAT_MULTIPLA:
+      if (fiat_multiplay_Vo1.isRented == false)
+      {
+        fiat_multiplay_Vo1.isRented = true;
+        car = &fiat_multiplay_Vo1;
+      }
+      else if(fiat_multiplay_Vo2.isRented == false)
+      {
+        fiat_multiplay_Vo2.isRented = true;
+        car = &fiat_multiplay_Vo2;
+      }
+      else if (fiat_multiplay_Vo3.isRented == false)
+      {
+        fiat_multiplay_Vo3.isRented = true;
+        car = &fiat_multiplay_Vo3;
+      }
+      else
+      {
+        car = 0;
+      }
+      return car;
+    case JEEP:
+      if (jeep_Vo1.isRented == false)
+      {
+        jeep_Vo1.isRented = true;
+        car = &jeep_Vo1;
+      }
+      else if (jeep_Vo2.isRented == false)
+      {
+        jeep_Vo2.isRented = true;
+        car = &jeep_Vo2;
+      }
+      else
+      {
+        car = 0;
+      }
+      return car;
   }
-  else if(type == FIAT_MULTIPLA)
-  {
-    if (fiat_multiplay_Vo1.isRented == false)
-    {
-      fiat_multiplay_Vo1.isRented = true;
-      car = &fiat_multiplay_Vo1;
-    }
-    else if(fiat_multiplay_Vo2.isRented == false)
-    {
-      fiat_multiplay_Vo2.isRented = true;
-      car = &fiat_multiplay_Vo2;
-    }
-    else if (fiat_multiplay_Vo3.isRented == false)
-    {
-      fiat_multiplay_Vo3.isRented = true;
-      car = &fiat_multiplay_Vo3;
-    }
-    else
-    {
-      car = 0;
-    }
-  }
-  else
-  {
-    if (jeep_Vo1.isRented == false)
-    {
-      jeep_Vo1.isRented = true;
-      car = &jeep_Vo1;
-    }
-    else if (jeep_Vo2.isRented == false)
-    {
-      jeep_Vo2.isRented = true;
-      car = &jeep_Vo2;
-    }
-    else
-    {
-      car = 0;
-    }
-  }
-  return car;
+
 }
 Type get_type(Car car)
 {
